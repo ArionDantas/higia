@@ -118,10 +118,10 @@
 
             <div class="container">
                 <div class="d-flex justify-content-between">
-                    <div class="frete">
-                        <div class="d-flex align-items-center">
+                    <div class="frete ">
+                        <div class="d-flex align-items-center border">
                             <div>
-                                <input class="form-control radius-0" type="text" name="calcularFreteCEP" id="freteCEP"
+                                <input class="form-control border-0" type="text" name="calcularFreteCEP" id="freteCEP"
                                     placeholder="Ex: 29000-000">
                             </div>
                             <div>
@@ -137,33 +137,41 @@
                     </div>
                     <div class="preco">
                         <div class="border p-4">
-                            <div class="total d-flex justify-content-between align-items-center px-5 py-2">
-                                <div class="">
+                            <div class="total d-flex justify-content-between align-items-center p-2 bg-primary text-white rounded">
+                                <div>
                                     <h6>Total:</h6>
                                 </div>
                                 <div>
                                     <h6>R$90.00</h6>
                                 </div>
                             </div>
-                            <div class="formas-pagamento">
-                                <h6>Formas de pagamento:</h6>
-                                <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Option 1
-                                    <label class="form-check-label" for="radio1"></label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Option 2
-                                    <label class="form-check-label" for="radio2"></label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Option 2
-                                    <label class="form-check-label" for="radio2"></label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Option 2
-                                    <label class="form-check-label" for="radio2"></label>
-                                  </div>
-                                  <a href="#" class="btn btn-success">Finalizar compra</a>
+                            <div class="formas-pagamento mt-3">
+                                <h6 class="mb-3">Formas de pagamento:</h6>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="radio1" name="optradio"
+                                            value="option1" checked>Pix
+                                        <label class="form-check-label" for="radio1"></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                            value="option2">Cartão de Crédito
+                                        <label class="form-check-label" for="radio2"></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                            value="option2">Cartão de Débito
+                                        <label class="form-check-label" for="radio2"></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                            value="option2">Boleto
+                                        <label class="form-check-label" for="radio2"></label>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-success w-100">Finalizar compra</a>
+
+
 
                             </div>
                         </div>
