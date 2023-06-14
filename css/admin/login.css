@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.h1-admin {
+    color: #005100;
+}
+
+.login {
+    position: relative;
+    width: 500px;
+    top: 20vh;
+    padding: 0 50px;
+    border-radius: 10px;
+}
+
+.admin-painel {
+    position: relative;
+    top: -40px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    padding: 30px;
+    width: 200px;
+    height: 200px;
+}
+
+body {
+    background-color: #dceae0;
+}
+
+
+/* .container {
+    background: red;
+} */
