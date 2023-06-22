@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Higia</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+    <link rel="stylesheet" href="/css/admin/telaAdmin.css">
+</head>
+
+<body class="vh-100">
+
+    <style>
+        a {
+            text-decoration: none;
+            color: #FFF;
+        }
+
+        .nav-link:hover {
+            background-color: darkblue;
+        }
+    </style>
+
+    <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills flex-shrink-0 p-3 text-bg-dark vh-100 position-fixed" id="v-pills-tab"
+            role="tablist" aria-orientation="vertical">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi pe-none me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Higia</span>
+            </a>
+
+            <hr>
+
+            <!-- Main tablinks  -->
+            <ul class="nav nav-pills flex-column mb-auto" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="d-flex align-items-start ">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                        <!-- Tablinks of buttons -->
+                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-home-tab"
+                            data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab"
+                            aria-controls="v-pills-home">
+                            <span class="material-symbols-outlined pe-2">
+                                home
+                            </span>
+                            <div>
+                                <p class="m-0">Home</p>
+                            </div>
+                        </button>
+                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-dashboard-tab"
+                            data-bs-toggle="pill" data-bs-target="#v-pills-dashboard" type="button" role="tab"
+                            aria-controls="v-pills-dashboard" aria-selected="true">
+                            <span class="material-symbols-outlined pe-2">
+                                dashboard
+                            </span>
+                            <div>
+                                <p class="m-0">Dashboard</p>
+                            </div>
+                        </button>
+                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-clients-tab"
+                            data-bs-toggle="pill" data-bs-target="#v-pills-clients" type="button" role="tab"
+                            aria-controls="v-pills-clients" aria-selected="true">
+                            <span class="material-symbols-outlined pe-2">
+                                handshake
+                            </span>
+                            <div>
+                                <p class="m-0">Clientes</p>
+                            </div>
+                        </button>
+                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-products-tab"
+                            data-bs-toggle="pill" data-bs-target="#v-pills-products" type="button" role="tab"
+                            aria-controls="v-pills-products" aria-selected="true">
+                            <span class="material-symbols-outlined pe-2">
+                                archive
+                            </span>
+                            <div>
+                                <p class="m-0">Produtos</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </ul>
+
+            <hr>
+
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>mdo</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Conteúdo das tablinks  -->
+        <div class="tab-content w-100" id="v-pills-tabContent">
+            <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"
+                tabindex="0">Lorem ipsum
+            </div>
+            <div class="tab-pane fade" id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab"
+                tabindex="0">...</div>
+            <div class="tab-pane fade" id="v-pills-clients" rle="tabpanel" aria-labelledby="v-pills-clients-tab"
+                tabindex="0">clients</div>
+            <div class="tab-pane active w-100" id="v-pills-products" role="tabpanel"
+                aria-labelledby="v-pills-products-tab" tabindex="0">
+                <!-- Tela dos produtos -->
+                <div class="main-products">
+                    <h3>Produtos</h3>
+                    <div class="filtros-pesquisa shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <!-- Header do filtro -->
+                        <div class="header-filter d-flex align-content-center">
+                            <span class="material-symbols-outlined">
+                                filter_alt
+                            </span>
+                            <h6>Filtros de pesquisa</h6>
+                        </div>
+                        <hr>
+                        <!-- Input dos filtros -->
+                        <div class="filters">
+                            <form action="GET">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputType" class="form-label">Tipo</label>
+                                            <input type="text" class="form-control" id="inputType" placeholder="Selecionar tipo do produto">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputStatus" class="form-label">Status</label>
+                                            <input type="text" class="form-control" id="inputStatus" placeholder="Selecionar status">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"
+                tabindex="0">...</div>
+
+        </div>
+
+</body>
+
+</html>

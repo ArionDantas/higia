@@ -1,0 +1,13 @@
+/* A estilização do CSS vai estar listada na ordem do HTML  */
+
+.tab-content {
+    margin-left: 180px;
+}
+
+/* Janela dos produtos */
+
+.main-products {
+    width: 100%;    
+    padding: 0 10px 0 5px;
+}
+
