@@ -11,6 +11,11 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
     <link rel="stylesheet" href="/css/admin/telaAdmin.css">
+    <script src="../../js/admin/previewImage.js" defer></script>
+    <script src="../../js/admin/limparCamposPesquisaProduto.js" defer></script>
+    <script src="../../js/admin/limparCamposPesquisaCliente.js" defer></script>
+    <script src="../../js/admin/limparCamposNewClient.js" defer></script>
+    
 </head>
 
 <body class="vh-100">
@@ -111,17 +116,15 @@
         <!-- Conteúdo das tablinks  -->
         <div class="tab-content w-100" id="v-pills-tabContent">
             <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"
-                tabindex="0">Lorem ipsum
+                tabindex="0">Loraem ipsum
             </div>
             <div class="tab-pane fade" id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab"
                 tabindex="0">...</div>
-            <div class="tab-pane fade" id="v-pills-clients" rle="tabpanel" aria-labelledby="v-pills-clients-tab"
-                tabindex="0">clients</div>
-            <div class="tab-pane active w-100" id="v-pills-products" role="tabpanel"
-                aria-labelledby="v-pills-products-tab" tabindex="0">
-                <!-- Tela dos produtos -->
-                <div class="main-products">
-                    <h3 class="my-4">Produtos</h3>
+            <div class="tab-pane active" id="v-pills-clients" rle="tabpanel" aria-labelledby="v-pills-clients-tab"
+                tabindex="0">
+                 <!-- Tela dos produtos -->
+                 <div class="main-products">
+                    <h3 class="my-4">Clientes</h3>
                     <!-- Div filtros de pesquisa -->
                     <div class="filtros-pesquisa shadow-sm p-3 mb-5 bg-body-tertiary rounded">
                         <!-- Header do filtro -->
@@ -139,9 +142,9 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="inputType" class="form-label">Tipo</label>
-                                            <input type="text" class="form-control" id="inputType"
-                                                placeholder="Selecionar tipo do produto">
+                                            <label for="inputMatricula" class="form-label">Matrícula</label>
+                                            <input type="number" class="form-control" id="inputMatricula"
+                                                placeholder="Pesquisar matrícula">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -154,7 +157,8 @@
                                     <div class="col">
                                         <div class="mb-3">
                                             <label for="inputData" class="form-label">Data de geração</label>
-                                            <input type="date" class="form-control" id="inputData">
+                                            <input type="date" class="form-control" id="inputData"
+                                                placeholder="Selecione a data">
                                         </div>
                                     </div>
                                 </div>
@@ -162,23 +166,23 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="inputMatricula" class="form-label">Matrícula</label>
-                                            <input type="number" class="form-control" id="inputMatricula"
-                                                placeholder="Pesquisar matrícula">
+                                            <label for="inputNomeCliente" class="form-label">Nome</label>
+                                            <input type="text" class="form-control" id="inputNomeCliente"
+                                                placeholder="Pesquisar nome">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="inputPalavrasChave" class="form-label">Palavras-chave</label>
-                                            <input type="text" class="form-control" id="inputPalavrasChave"
-                                                placeholder="Selecionar status">
+                                            <label for="inputEmailCliente" class="form-label">E-mail</label>
+                                            <input type="text" class="form-control" id="inputEmailCliente"
+                                                placeholder="Selecionar email">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="inputUnidade" class="form-label">Unidade</label>
-                                            <input type="text" class="form-control" id="inputUnidade"
-                                                placeholder="Selecionar unidade">
+                                            <label for="inputEnderecoCliente" class="form-label">Endereço</label>
+                                            <input type="text" class="form-control" id="inputEnderecoCliente"
+                                                placeholder="Selecionar endereço">
                                         </div>
                                     </div>
                                 </div>
@@ -191,61 +195,84 @@
                                         </span>
                                         Buscar
                                     </button>
-                                    <button type="button" class="btn btn-danger d-flex align-content-center">
+                                    <button type="button" id="buttomLimpar" class="btn btn-danger d-flex align-content-center">
                                         <span class="material-symbols-outlined">
                                             close
                                         </span>
                                         Limpar
                                     </button>
-                                    <button type="button" class="btn btn-primary d-flex align-content-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <button type="button" id="buttomNovoCliente" class="btn btn-primary d-flex align-content-center"
+                                        data-bs-toggle="modal" data-bs-target="#modalCliente">
                                         <span class="material-symbols-outlined">
                                             add
                                         </span>
                                         Novo
                                     </button>
                                     <!-- Div modal add -->
-                                    <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xxl">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar produto</h1>
-                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="modal fade" id="modalCliente" data-bs-keyboard="false" tabindex="-1"
+                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar
+                                                        cliente</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="get">
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="inputNomeClienteCadastro"
+                                                                        class="form-label">Nome</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="inputNomeClienteCadastro">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="inputEmailClienteCadastro"
+                                                                        class="form-label">Email</label>
+                                                                    <input type="email" class="form-control"
+                                                                        id="inputEmailClienteCadastro">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <div class="mb-3">
+                                                                    <label for="inputCPFClienteCadastro"
+                                                                        class="form-label">CPF</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="inputCPFClienteCadastro">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <div class="mb-3">
+                                                                    <label for="inputAniversarioClienteCadastro"
+                                                                        class="form-label">Aniversário</label>
+                                                                    <input type="date" class="form-control"
+                                                                        id="inputAniversarioClienteCadastro">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <button type="submit" class="btn btn-success">Cadastrar</button>
+
+
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Fechar</button>
+                                                </div>
                                             </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="mb-3">
-                                                      <label for="inputNomeProduto" class="form-label">Nome do produto</label>
-                                                      <input type="text" class="form-control" id="inputNomeProduto">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                      <label for="inputCodigoBarras" class="form-label">Código de barras</label>
-                                                      <input type="number" class="form-control" id="inputCodigoBarras">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                      <label for="inputTipoProduto" class="form-label">Tipo</label>
-                                                      <input type="text" class="form-control" id="inputTipoProduto">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                      <label for="inputTipoProduto" class="form-label">Descrição</label>
-                                                      <input type="text" class="form-control" id="inputTipoProduto">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                      <label for="inputValorProduto" class="form-label">Valor</label>
-                                                      <input type="number" class="form-control" id="inputValorProduto">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                      <label for="inputValorProduto" class="form-label">Aplicar desconto</label>
-                                                      <input type="number" class="form-control" id="inputValorProduto">
-                                                    </div>
-                                                  </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-success">Cadastrar</button>
-                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                                            </div>
-                                          </div>
                                         </div>
-                                      </div>
+                                    </div>
 
                                 </div>
                             </form>
@@ -298,20 +325,23 @@
                                         <td>Vitória</td>
                                         <td>R$10,00</td>
                                         <td class="d-flex align-content-center gap-1">
-                                            <button type="button" class="btn btn-success justify-content-center d-flex align-content-center">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     visibility
                                                 </span>
                                             </button>
-                                            <button type="button" class="btn btn-primary d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     edit_square
-                                                    </span>
+                                                </span>
                                             </button>
-                                            <button type="button" class="btn btn-danger d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     block
-                                                    </span>
+                                                </span>
                                             </button>
                                         </td>
                                     </tr>
@@ -322,20 +352,23 @@
                                         <td>Vitória</td>
                                         <td>R$10,00</td>
                                         <td class="d-flex align-content-center gap-1">
-                                            <button type="button" class="btn btn-success justify-content-center d-flex align-content-center">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     visibility
                                                 </span>
                                             </button>
-                                            <button type="button" class="btn btn-primary d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     edit_square
-                                                    </span>
+                                                </span>
                                             </button>
-                                            <button type="button" class="btn btn-danger d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     block
-                                                    </span>
+                                                </span>
                                             </button>
                                         </td>
                                     </tr>
@@ -346,20 +379,23 @@
                                         <td>Vitória</td>
                                         <td>R$10,00</td>
                                         <td class="d-flex align-content-center gap-1">
-                                            <button type="button" class="btn btn-success justify-content-center d-flex align-content-center">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     visibility
                                                 </span>
                                             </button>
-                                            <button type="button" class="btn btn-primary d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     edit_square
-                                                    </span>
+                                                </span>
                                             </button>
-                                            <button type="button" class="btn btn-danger d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     block
-                                                    </span>
+                                                </span>
                                             </button>
                                         </td>
                                     </tr>
@@ -370,20 +406,23 @@
                                         <td>Vitória</td>
                                         <td>R$10,00</td>
                                         <td class="d-flex align-content-center gap-1">
-                                            <button type="button" class="btn btn-success justify-content-center d-flex align-content-center">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     visibility
                                                 </span>
                                             </button>
-                                            <button type="button" class="btn btn-primary d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     edit_square
-                                                    </span>
+                                                </span>
                                             </button>
-                                            <button type="button" class="btn btn-danger d-flex justify-content-center align-content-center">
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
                                                     block
-                                                    </span>
+                                                </span>
                                             </button>
                                         </td>
                                     </tr>
@@ -394,8 +433,353 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"
-                tabindex="0">...</div>
+            <div class="tab-pane fade " id="v-pills-products" role="tabpanel"
+                aria-labelledby="v-pills-products-tab" tabindex="0">
+                <!-- Tela dos produtos -->
+                <div class="main-products">
+                    <h3 class="my-4">Produtos</h3>
+                    <!-- Div filtros de pesquisa -->
+                    <div class="filtros-pesquisa shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <!-- Header do filtro -->
+                        <div class="header-filter d-flex align-content-center">
+                            <span class="material-symbols-outlined pe-2">
+                                filter_alt
+                            </span>
+                            <h6>Filtros de pesquisa</h6>
+                        </div>
+                        <hr>
+                        <!-- Input dos filtros -->
+                        <div class="filters">
+                            <form action="#">
+                                <!-- Primeira linha dos filtros de pesquisa -->
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputType" class="form-label">Tipo</label>
+                                            <input type="text" class="form-control" id="inputType"
+                                                placeholder="Selecionar tipo do produto">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputStatus" class="form-label">Status</label>
+                                            <input type="text" class="form-control" id="inputStatus"
+                                                placeholder="Selecionar status">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputData" class="form-label">Data de geração</label>
+                                            <input type="date" class="form-control" id="inputData"
+                                                placeholder="Selecione a data">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Segunda linha dos filtros de pesquisa -->
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputMatricula" class="form-label">Matrícula</label>
+                                            <input type="number" class="form-control" id="inputMatricula"
+                                                placeholder="Pesquisar matrícula">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputPalavrasChave" class="form-label">Palavras-chave</label>
+                                            <input type="text" class="form-control" id="inputPalavrasChave"
+                                                placeholder="Selecionar status">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="inputUnidade" class="form-label">Unidade</label>
+                                            <input type="text" class="form-control" id="inputUnidade"
+                                                placeholder="Selecionar unidade">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Div contendo os botões do formulário -->
+                                <div class="buttons d-flex justify-content-end gap-1">
+                                    <button type="button" class="btn btn-success d-flex align-content-center">
+                                        <span class="material-symbols-outlined">
+                                            search
+                                        </span>
+                                        Buscar
+                                    </button>
+                                    <button type="button" id="buttomLimpar" class="btn btn-danger d-flex align-content-center">
+                                        <span class="material-symbols-outlined">
+                                            close
+                                        </span>
+                                        Limpar
+                                    </button>
+                                    <button type="button" class="btn btn-primary d-flex align-content-center"
+                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        onclick="limparCampos()">
+                                        <span class="material-symbols-outlined">
+                                            add
+                                        </span>
+                                        Novo
+                                    </button>
+                                    <!-- Div modal add -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar
+                                                        produto</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="get">
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="inputCodigoBarras"
+                                                                        class="form-label">Código de barras</label>
+                                                                    <input type="number" class="form-control"
+                                                                        id="inputCodigoBarras">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="inputNomeProduto"
+                                                                        class="form-label">Nome do produto</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="inputNomeProduto">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <div class="mb-3">
+                                                                    <label for="inputTipoProduto"
+                                                                        class="form-label">Tipo</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="inputTipoProduto">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <div class="mb-3">
+                                                                    <label for="inputValorProduto"
+                                                                        class="form-label">Valor</label>
+                                                                    <input type="number" class="form-control"
+                                                                        id="inputValorProduto">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <div class="mb-3">
+                                                                    <label for="inputDescontoProduto"
+                                                                        class="form-label">Desconto %</label>
+                                                                    <input type="number" class="form-control"
+                                                                        id="inputDescontoProduto">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="inputEstabelecimento"
+                                                                        class="form-label">Estabelecimento</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="inputEstabelecimento">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="m3-3">
+                                                                    <label for="inputImagemProduto"
+                                                                        class="form-label">Imagem</label>
+                                                                    <input type="file" class="form-control"
+                                                                        id="inputImagemProduto"
+                                                                        placeholder="Escolher imagem" accept="image/*">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div id="preview"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <button type="submit" class="btn btn-success">Cadastrar</button>
+
+
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Fechar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <!-- Div resultados da pesquisa -->
+                    <div class="result-filters shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <!-- Header do resultado do filtro -->
+                        <div class="header-filter d-flex align-content-center">
+                            <span class="material-symbols-outlined pe-2">
+                                bar_chart_4_bars
+                            </span>
+                            <h6>Filtros de pesquisa</h6>
+                        </div>
+                        <hr>
+                        <!-- Div de pesquisa -->
+                        <div class="div-pesquisa d-flex justify-content-end">
+                            <form action="" method="get" class="d-flex align-content-center">
+                                <input class="form-control me-2" type="search" placeholder="Pesquisar..."
+                                    aria-label="Search">
+                                <button
+                                    class="btn btn-outline-success d-flex align-content-center justify-content-center"
+                                    type="submit"><span class="material-symbols-outlined">
+                                        search
+                                    </span></button>
+                            </form>
+                        </div>
+                        <hr>
+                        <!-- Div com a tabela do resultado da pesquisa -->
+                        <div class="table-result">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>ID Produto</th>
+                                        <th>Nome</th>
+                                        <th>Tipo</th>
+                                        <th>Unidade</th>
+                                        <th>Valor</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Linhas da tabela -->
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Dipirona</td>
+                                        <td>Remédio</td>
+                                        <td>Vitória</td>
+                                        <td>R$10,00</td>
+                                        <td class="d-flex align-content-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    visibility
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    edit_square
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    block
+                                                </span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Dipirona</td>
+                                        <td>Remédio</td>
+                                        <td>Vitória</td>
+                                        <td>R$10,00</td>
+                                        <td class="d-flex align-content-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    visibility
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    edit_square
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    block
+                                                </span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Dipirona</td>
+                                        <td>Remédio</td>
+                                        <td>Vitória</td>
+                                        <td>R$10,00</td>
+                                        <td class="d-flex align-content-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    visibility
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    edit_square
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    block
+                                                </span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Dipirona</td>
+                                        <td>Remédio</td>
+                                        <td>Vitória</td>
+                                        <td>R$10,00</td>
+                                        <td class="d-flex align-content-center gap-1">
+                                            <button type="button"
+                                                class="btn btn-success justify-content-center d-flex align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    visibility
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-primary d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    edit_square
+                                                </span>
+                                            </button>
+                                            <button type="button"
+                                                class="btn btn-danger d-flex justify-content-center align-content-center">
+                                                <span class="material-symbols-outlined">
+                                                    block
+                                                </span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"
+                tabindex="0">...</div> -->
 
         </div>
 
