@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="/css/admin/telaAdmin.css">
     <script src="../../js/admin/previewImage.js" defer></script>
     <script src="../../js/admin/limparCamposPesquisaProduto.js" defer></script>
-    <script src="../../js/admin/limparCamposPesquisaCliente.js" defer></script>
-    <script src="../../js/admin/limparCamposNewClient.js" defer></script>
+    <script src="../../js/admin/listarProdutos.js" defer></script>
     
+
 </head>
 
 <body class="vh-100">
@@ -49,7 +49,7 @@
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                         <!-- Tablinks of buttons -->
-                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-home-tab"
+                        <button class="nav-link navLinks text-white d-flex align-content-center" id="v-pills-home-tab"
                             data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab"
                             aria-controls="v-pills-home">
                             <span class="material-symbols-outlined pe-2">
@@ -59,7 +59,7 @@
                                 <p class="m-0">Home</p>
                             </div>
                         </button>
-                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-dashboard-tab"
+                        <button class="nav-link navLinks text-white d-flex align-content-center" id="v-pills-dashboard-tab"
                             data-bs-toggle="pill" data-bs-target="#v-pills-dashboard" type="button" role="tab"
                             aria-controls="v-pills-dashboard" aria-selected="true">
                             <span class="material-symbols-outlined pe-2">
@@ -69,7 +69,7 @@
                                 <p class="m-0">Dashboard</p>
                             </div>
                         </button>
-                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-clients-tab"
+                        <button class="nav-link navLinks text-white d-flex align-content-center" id="v-pills-clients-tab"
                             data-bs-toggle="pill" data-bs-target="#v-pills-clients" type="button" role="tab"
                             aria-controls="v-pills-clients" aria-selected="true">
                             <span class="material-symbols-outlined pe-2">
@@ -79,7 +79,7 @@
                                 <p class="m-0">Clientes</p>
                             </div>
                         </button>
-                        <button class="nav-link text-white d-flex align-content-center" id="v-pills-products-tab"
+                        <button class="nav-link navLinks text-white d-flex align-content-center" id="v-pills-products-tab"
                             data-bs-toggle="pill" data-bs-target="#v-pills-products" type="button" role="tab"
                             aria-controls="v-pills-products" aria-selected="true">
                             <span class="material-symbols-outlined pe-2">
@@ -122,8 +122,8 @@
                 tabindex="0">...</div>
             <div class="tab-pane active" id="v-pills-clients" rle="tabpanel" aria-labelledby="v-pills-clients-tab"
                 tabindex="0">
-                 <!-- Tela dos produtos -->
-                 <div class="main-products">
+                <!-- Tela dos produtos -->
+                <div class="main-products">
                     <h3 class="my-4">Clientes</h3>
                     <!-- Div filtros de pesquisa -->
                     <div class="filtros-pesquisa shadow-sm p-3 mb-5 bg-body-tertiary rounded">
@@ -195,14 +195,16 @@
                                         </span>
                                         Buscar
                                     </button>
-                                    <button type="button" id="buttomLimpar" class="btn btn-danger d-flex align-content-center">
+                                    <button type="reset" id="buttomLimpar"
+                                        class="btn btn-danger d-flex align-content-center">
                                         <span class="material-symbols-outlined">
                                             close
                                         </span>
                                         Limpar
                                     </button>
-                                    <button type="button" id="buttomNovoCliente" class="btn btn-primary d-flex align-content-center"
-                                        data-bs-toggle="modal" data-bs-target="#modalCliente">
+                                    <button type="button" id="buttomNovoCliente"
+                                        class="btn btn-primary d-flex align-content-center" data-bs-toggle="modal"
+                                        data-bs-target="#modalCliente">
                                         <span class="material-symbols-outlined">
                                             add
                                         </span>
@@ -262,13 +264,9 @@
 
                                                         <button type="submit" class="btn btn-success">Cadastrar</button>
 
-
+                                                        <button type="reset" class="btn btn-danger"
+                                                            data-bs-dismiss="modal">Fechar</button>
                                                     </form>
-                                                </div>
-                                                <div class="modal-footer">
-
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-bs-dismiss="modal">Fechar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -340,7 +338,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -367,7 +365,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -394,7 +392,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -421,7 +419,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -433,8 +431,8 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade " id="v-pills-products" role="tabpanel"
-                aria-labelledby="v-pills-products-tab" tabindex="0">
+            <div class="tab-pane fade " id="v-pills-products" role="tabpanel" aria-labelledby="v-pills-products-tab"
+                tabindex="0">
                 <!-- Tela dos produtos -->
                 <div class="main-products">
                     <h3 class="my-4">Produtos</h3>
@@ -508,7 +506,8 @@
                                         </span>
                                         Buscar
                                     </button>
-                                    <button type="button" id="buttomLimpar" class="btn btn-danger d-flex align-content-center">
+                                    <button type="button" id="buttomLimpar"
+                                        class="btn btn-danger d-flex align-content-center">
                                         <span class="material-symbols-outlined">
                                             close
                                         </span>
@@ -608,12 +607,9 @@
                                                         <button type="submit" class="btn btn-success">Cadastrar</button>
 
 
+                                                        <button type="reset" class="btn btn-danger" id="buttomFecharNewProduct"
+                                                            data-bs-dismiss="modal">Fechar</button>
                                                     </form>
-                                                </div>
-                                                <div class="modal-footer">
-
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-bs-dismiss="modal">Fechar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -661,7 +657,7 @@
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="listagem-produtos">
                                     <!-- Linhas da tabela -->
                                     <tr>
                                         <td>1</td>
@@ -685,7 +681,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -712,7 +708,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -739,7 +735,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -766,7 +762,7 @@
                                             <button type="button"
                                                 class="btn btn-danger d-flex justify-content-center align-content-center">
                                                 <span class="material-symbols-outlined">
-                                                    block
+                                                    close
                                                 </span>
                                             </button>
                                         </td>
@@ -782,6 +778,36 @@
                 tabindex="0">...</div> -->
 
         </div>
+
+        <template id="template-html d-none">
+            <tr>
+                <td>1</td>
+                <td>Dipirona</td>
+                <td>Remédio</td>
+                <td>Vitória</td>
+                <td>R$10,00</td>
+                <td class="d-flex align-content-center gap-1">
+                    <button type="button"
+                        class="btn btn-success justify-content-center d-flex align-content-center">
+                        <span class="material-symbols-outlined">
+                            visibility
+                        </span>
+                    </button>
+                    <button type="button"
+                        class="btn btn-primary d-flex justify-content-center align-content-center">
+                        <span class="material-symbols-outlined">
+                            edit_square
+                        </span>
+                    </button>
+                    <button type="button"
+                        class="btn btn-danger d-flex justify-content-center align-content-center">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </td>
+            </tr>
+          </template>
 
 </body>
 

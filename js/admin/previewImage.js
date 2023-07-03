@@ -8,6 +8,7 @@ inputFile.addEventListener('change', function() {
   reader.onload = function(event) {
     const image = new Image();
     image.src = event.target.result;
+    image.id = 'image-product'
 
     previewDiv.innerHTML = '';
     previewDiv.appendChild(image);
