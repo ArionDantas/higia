@@ -18,13 +18,13 @@ function listProdutos(produtos) {
         <td>${element.unidade}</td>
         <td>R$${element.valor}</td>
         <td class="d-flex align-content-center gap-1">
-            <button type="button" data-bs-target="#modalVisualizarProduto" data-bs-toggle="modal"
+            <button type="button" data-bs-target="#modalVisualizarProduto${element.id}" data-bs-toggle="modal"
                 class="btn btn-success justify-content-center d-flex align-content-center">
                 <span class="material-symbols-outlined">
                     visibility
                 </span>
             </button>
-            <button type="button" data-bs-target="#modalEditarProduto" data-bs-toggle="modal"
+            <button type="button" data-bs-target="#modalEditarProduto${element.id}" data-bs-toggle="modal"
                 class="btn btn-primary d-flex justify-content-center align-content-center">
                 <span class="material-symbols-outlined">
                     edit_square
@@ -39,7 +39,7 @@ function listProdutos(produtos) {
         </td>
         </tr>
 
-        <div class="modal fade" id="modalEditarProduto" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="modalEditarProduto${element.id}" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -100,7 +100,7 @@ function listProdutos(produtos) {
         </div>
     </div>
 
-        <div class="modal fade" id="modalVisualizarProduto" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="modalVisualizarProduto${element.id}" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">

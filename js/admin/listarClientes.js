@@ -1,22 +1,23 @@
-let produtos = [
-    { id: 1, nome: 'dipirona', tipo: 'remedio', unidade: 'vitoria', valor: 10 },
-    { id: 2, nome: 'naftalina', tipo: 'remedio', unidade: 'vitoria', valor: 670 },
-    { id: 3, nome: 'ubuprofeno', tipo: 'remedio', unidade: 'vitoria', valor: 50 }
+let clientes = [
+    { id: 1, nome: 'Arion Dantas da Silva Junior', email: 'ariondantas@gmail.com', cpf: '15891140780', endereco: 'Av Espirito Santo, n 18' },
+    { id: 2, nome: 'Arion', email: 'ariondantas@gmail.com', cpf: '15891140780', endereco: 'Av Espirito Santo, n 18' },
+    { id: 3, nome: 'Arion', email: 'ariondantas@gmail.com', cpf: '15891140780', endereco: 'Av Espirito Santo, n 18' },
+    { id: 4, nome: 'Arion', email: 'ariondantas@gmail.com', cpf: '15891140780', endereco: 'Av Espirito Santo, n 18' }
 ]
 
-let listagemClientes = document.getElementById('listagem-clientes');
-let list = '';
+let listagemClientes = document.querySelector('#listagem-clientes');
+let listaClientes = '';
 
 function listClientes(clientes) {
 
-    clientes.forEach((element, index) => {
-        list += `
+    clientes.forEach((cliente, index) => {
+        listaClientes += `
         <tr>
-        <td>${clientes.id}</td>
-        <td>${clientes.nome}p</td>
-        <td>${clientes.tipo}</td>
-        <td>${clientes.unidade}</td>
-        <td>R$${clientes.valor}</td>
+        <td>${cliente.id}</td>
+        <td>${cliente.nome}</td>
+        <td>${cliente.email}</td>
+        <td>${cliente.cpf}</td>
+        <td>${cliente.endereco}</td>
         <td class="d-flex align-content-center gap-1">
             <button type="button"
                 class="btn btn-success justify-content-center d-flex align-content-center">
@@ -40,10 +41,10 @@ function listClientes(clientes) {
         </tr>
     `
     
-    listagemClientes.innerHTML = list;
+    listagemClientes.innerHTML = listaClientes;
     
     });
 }
 
-listProdutos(clientes);
+listClientes(clientes);
 console.log(clientes);

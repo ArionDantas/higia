@@ -35,3 +35,12 @@ input[type="number"] {
   width: 100%;
   height: auto;
 }
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.nav-link:hover {
+    background-color: darkblue;
+}
